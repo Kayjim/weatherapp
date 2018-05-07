@@ -1,0 +1,19 @@
+<div class="mdl-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-colored-text-primary">
+    <h1>Look up your local forecast!</h1>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <p><em>What's the weather like in your city?</em></p>
+    <%= form_tag root_path, method: :post do %>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield-floating-label">
+      <%= label_tag :city, "City name", class: "mdl-textfield__label" %>
+      <%= text_field_tag :city, nil, class: "mdl-textfield__input" %>
+      <br>
+    </div>
+
+    <%= select_tag :state, options_for_select(@states), :prompt => "Select State" %>
+    <%= button_tag(type: "submit", class: "mdl-button mdl-js-button mdl-button--fab mdl-button--colored") do %><i class="material-icons">search</i> <% end %>
+    <% end %>
+
+  </div>
+</div>
